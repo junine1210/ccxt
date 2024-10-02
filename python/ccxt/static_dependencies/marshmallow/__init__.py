@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import importlib.metadata
+import importlib_metadata
 import typing
 
 # from packaging.version import Version
@@ -27,31 +27,31 @@ def __getattr__(name: str) -> typing.Any:
         warnings.warn(
             "The '__version__' attribute is deprecated and will be removed in"
             " in a future version. Use feature detection or"
-            " 'importlib.metadata.version(\"marshmallow\")' instead.",
+            " 'importlib_metadata.version(\"marshmallow\")' instead.",
             DeprecationWarning,
             stacklevel=2,
         )
-        return importlib.metadata.version("marshmallow")
+        return importlib_metadata.version("marshmallow")
 
     # if name == "__parsed_version__":
     #     warnings.warn(
     #         "The '__parsed_version__' attribute is deprecated and will be removed in"
     #         " in a future version. Use feature detection or"
-    #         " 'packaging.Version(importlib.metadata.version(\"marshmallow\"))' instead.",
+    #         " 'packaging.Version(importlib_metadata.version(\"marshmallow\"))' instead.",
     #         DeprecationWarning,
     #         stacklevel=2,
     #     )
-    #     return Version(importlib.metadata.version("marshmallow"))
+    #     return Version(importlib_metadata.version("marshmallow"))
 
     if name == "__version_info__":
         warnings.warn(
             "The '__version_info__' attribute is deprecated and will be removed in"
             " in a future version. Use feature detection or"
-            " 'packaging.Version(importlib.metadata.version(\"marshmallow\")).release' instead.",
+            " 'packaging.Version(importlib_metadata.version(\"marshmallow\")).release' instead.",
             DeprecationWarning,
             stacklevel=2,
         )
-        # __parsed_version__ = Version(importlib.metadata.version("marshmallow"))
+        # __parsed_version__ = Version(importlib_metadata.version("marshmallow"))
         __version_info__: tuple[int, int, int] | tuple[int, int, int, str, int] = (
             __parsed_version__.release  # type: ignore[assignment]
         )

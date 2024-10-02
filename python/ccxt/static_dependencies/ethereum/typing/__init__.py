@@ -1,4 +1,4 @@
-from importlib.metadata import (
+from importlib_metadata import (
     version as __version,
 )
 
